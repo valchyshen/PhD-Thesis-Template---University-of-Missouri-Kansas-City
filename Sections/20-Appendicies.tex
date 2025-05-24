@@ -1,0 +1,65 @@
+\section*{\MakeUppercase{Appendices}}
+\addcontentsline{toc}{section}{\MakeUppercase{Appendices}}
+
+\appendix
+
+% Appendix sections must be numbered as letters: A, B, C, and so on.
+\renewcommand{\thesubsection}{\Alph{subsection}}
+
+\subsection{Some First Title}\label{apx:A}
+
+And here is an example of a footnote made in the Appendix section.\footnote{This is another example of a footnote, which is in Appendix~\ref {apx:A}.}
+
+\subsubsection*{Some title}
+\lipsum[1]
+
+\subsubsection*{Some title}
+\lipsum[2]
+
+\begin{figure}[!ht]
+    \vspace{.4in}
+    % The figure's caption and notes lines are centered, 100% of page width 
+    \captionsetup{width=1\linewidth,labelfont=bf}
+    \caption{Example of a plot, showing daily data on interest rates in the U.S, from Appendix~\ref{apx:A}}
+    \vspace{.2in}
+    \centering
+    % The plot is 100% of its width
+    \includegraphics[width=1\linewidth]{Plots/Plot 3.png}
+    \vspace{.2in}
+    \caption*{Note: some notes. \par\vspace{.15in} Source: Federal Reserve System of the United States}
+    \vspace{.2in}
+    \label{fig:plot3}
+\end{figure}
+
+\lipsum[3]
+
+\subsection{Some Second Title}\label{apx:B}
+
+\subsubsection*{Some title}
+\lipsum[4]
+
+\begin{figure}[htbp]
+    \vspace{.2in}
+    % The figure's caption and notes lines are centered, 100% of page width 
+    \captionsetup{width=1\linewidth,labelfont=bf}
+    \caption{Example of a large plot, showing monthly data points, which is placed on a separate page in Appendix~\ref{apx:B}}
+    \vspace{.2in}
+    \centering
+    % The plot is 100% of its width
+    \includegraphics[width=1\linewidth]{Plots/Plot 2.pdf}
+    \vspace{.2in}
+    \caption*{Note: some notes. \par\vspace{.15in} Source: \ac{bis}, \url{https://www.bis.org/}}
+    \vspace{.2in}
+    \label{fig:plot2}
+\end{figure}
+
+\subsubsection*{Some title}
+\lipsum[5]
+
+\begin{sidewaysfigure}[htbp]
+    \captionsetup{width=1\linewidth,labelfont=bf}
+    \caption{Example of an elaborate, landscape \emph{TiKz} plot}
+    \include{Plots/Plot 5}
+    \caption*{Notes: some notes here. \par\vspace{.15in} Source: \url{https://github.com/valchyshen}}
+    \label{fig:tikz2}
+\end{sidewaysfigure}

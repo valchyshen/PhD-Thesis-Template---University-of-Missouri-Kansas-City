@@ -1,0 +1,111 @@
+%
+%
+%        CHAPTER 2
+%        SOME CHAPTER TITLE
+%
+%
+
+\section{\MakeUppercase{Some Chapter Title}}\label{sec:ch2}
+
+\subsection{Example of level 2 section \& tables}
+
+Below are two table examples: (1) a \emph{\LaTeX} table, and {2) a \emph{TikZ} table.\footnote{Example of a footnote in Chapter~\ref{sec:ch2}.} The former is shown in Figure~\ref{tab:tbl1} below, while the latter is in Figure~\ref{tab:tbl2} on p.~\pageref{tab:tbl2}. Another example is of the landscape table, which is constructed by using \emph{TikZ} coding, see Figure~\ref{tab:tbl3} on p.~\pageref{tab:tbl3}.  
+
+\begin{table}[!ht]
+    \vspace{.4in}
+    \captionsetup{width=.5\linewidth,labelfont=bf}
+    \caption{Example of a \emph{\LaTeX} table}
+    \vspace{.2in}
+    \centering
+    \begin{tabular}{lrr}
+        \toprule
+        Item   & Quantity & Price\textsuperscript{a}  \\
+        \midrule
+        Apple  & 5        & \$0.99 \\
+        Orange & 3        & \$0.75 \\
+        Banana & 4        & \$0.50 \\
+        \bottomrule
+    \end{tabular}
+    \vspace{.2in}
+    \caption*{Note: \textsuperscript{a}Price is provided in the \ac{usd}. \par\vspace{.15in} Source: some source}
+    \label{tab:tbl1}
+    \vspace{.2in}
+\end{table}
+
+\lipsum[1]
+
+\begin{table}[!ht]
+    \vspace{.4in}
+    \captionsetup{width=.9\linewidth,labelfont=bf}
+    \caption{Example of a \emph{TikZ} table}
+    \vspace{.2in}
+    \centering
+    \begin{tikzpicture}
+    % Individual A -----------------------------------------------------
+        \matrix [matrix anchor=north, matrix of nodes, nodes in empty cells,
+             nodes = {text width=2.3in, minimum height=.2in, align=left},
+             column sep=1em,
+             row 2/.style={align=center, font=\bfseries},
+            ] (n) at (8,4) 
+        {
+         & \\
+        Assets & Liabilities \& Net Worth \\
+        Financial Assets ($FA$) & Financial Liabilities ($FL$) \\
+        Non-Financial Assets ($NFA$) & Net Worth ($NW$) \\
+         };
+        \node[fit=(n-1-1)(n-1-2)]%
+        {\textit{\MakeUppercase{Balance sheet}\textsuperscript{a}}};
+        \draw[thin]  (n-2-2.south -| n.west) -- (n-2-2.south -| n.east);
+        \draw[thin]  (n-1-1.south east) -- (n-4-1.south east);
+    \end{tikzpicture}
+    \vspace{.2in}
+    \caption*{Note: \textsuperscript{a}Denominated in the \ac{usd}. \par\vspace{.15in} Source: some source}
+    \label{tab:tbl2}
+    \vspace{.2in}
+\end{table}
+
+\lipsum[2]
+
+\begin{sidewaystable}[htbp]
+    \vspace{.4in}
+    \captionsetup{width=1\linewidth,labelfont=bf}
+    \caption{Example of a landscape \emph{TikZ} table}
+    \vspace{.2in}
+    \centering
+    \begin{tikzpicture}
+    % Individual A -----------------------------------------------------
+        \matrix [matrix anchor=north, matrix of nodes, nodes in empty cells,
+             nodes = {text width=.8in, minimum height=.2in, align=right},
+             column sep=1em,
+             row 1/.style={font=\bfseries},
+             column 1/.style={nodes={align=left}}
+            ] (n) %at (8,4) 
+        {
+        Items\textsuperscript{a}     
+                    & Jan   & Feb   & Mar   & Apr   & May   & Jun   & Jul   \\
+        Item 1      & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 2      & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 3      & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 4      & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 5      & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 6      & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 7      & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 8      & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 9      & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 10     & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 11     & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 12     & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 13     & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 14     & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        Item 15     & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 & 1,000 \\
+        };
+        \draw[thin]  (n-1-2.south -| n.west) -- (n-1-2.south -| n.east);
+        \draw[thin]  (n-1-1.north east) -- (n-16-1.south east);
+        \draw[thin]  (n-16-2.south -| n.west) -- (n-16-2.south -| n.east);
+    \end{tikzpicture}
+    \vspace{.2in}
+    \caption*{Note: \textsuperscript{a}Example of note with a table. \par\vspace{.15in} Source: some source}
+    \label{tab:tbl3}
+    \vspace{.2in}
+\end{sidewaystable}
+

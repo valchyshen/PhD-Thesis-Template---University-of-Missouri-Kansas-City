@@ -1,0 +1,183 @@
+% --- Bibliography, APA 7 style ------------------------------------------+
+\usepackage[style=apa,language=american,maxnames=2,minnames=2,sortcites=true]{biblatex} % maxcitenames=2
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{ref.bib}
+
+% --- Text look: font family, size, etc -----------------------------------+
+%\usepackage{mathptmx} % <----------------------------- Uses New Times font
+\usepackage{lmodern}   % <--------------------------- Uses Latin Modern font
+\fontsize{12}{1} \selectfont % <------------------------- Sets the font size 
+\usepackage{setspace}  % <----------------------------------------- Text spacing
+\doublespacing %\singlespacing
+%% set par indent
+%\usepackage{indentfirst}
+\setlength{\parindent}{5ex} % <----------------------------------- Text intend
+
+% --- Set the page margins as required -----------------------------------------+
+% Page Margins: no less than 1.25in for left, and 1in for right, top, bottom
+\usepackage[left=1.25in,right=1in,top=1in,bottom=1.25in]{geometry}
+\usepackage{lscape} % <---------------------------------- For landscape pages
+\usepackage{pdflscape}
+\usepackage{graphicx} % <--------------------- Required for inserting images
+\usepackage[linktocpage=true]{hyperref}
+\hypersetup{
+    colorlinks  = {false},
+    linkcolor   = {blue},
+    filecolor   = {magenta},      
+    urlcolor    = {cyan},
+    pdftitle    = {Dissertation by Oleksandr Valchyshen},
+    pdfpagemode = {FullScreen},
+}
+\usepackage{varioref}
+\usepackage[utf8]{inputenc}
+% For rotating figures, tables, etc.
+%  including their captions
+\usepackage{rotating}
+
+% --- Folders --------------------------------------------------------------+
+\newcommand{\folder}{./Sections} % <------------ the forlder for all chapters 
+\newcommand{\plotsfolder}{./Plots} % <------------------ the folder for plots
+\newcommand{\imagesfolder}{./Images} % <--------------- the folder for images
+\usepackage{setspace}\doublespacing % <------- Double-spacing the main text 
+\expandafter\def\expandafter\quote  % <------ Single-spacing the quotes used
+\expandafter{\quote\small\singlespacing}
+\usepackage{endnotes,chngcntr}
+\usepackage{booktabs}
+\usepackage[perpage,symbol*]{footmisc}
+\usepackage{titlesec}
+\usepackage{soul}
+\usepackage{afterpage}
+\usepackage{stringstrings} % <--- https://www.ctan.org/pkg/stringstrings
+\usepackage{tfrupee} % <------------------------- Symbol of Indian rupee
+\usepackage{mfirstuc} % <--------- Capitalize titles: \capitalisewords{}
+\usepackage{mwe}
+\usepackage{mfirstuc}
+%\usepackage{xcolor}
+\usepackage[dvipsnames,svgnames,table]{xcolor}
+\usepackage{etoolbox}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{epsfig,graphics}
+\usepackage[labelfont=bf,slc=off]{caption}
+\usepackage{tikz}
+\usepackage{pgfplots}\pgfplotsset{compat=1.18}
+\usetikzlibrary{matrix,fit,arrows.meta,bending,positioning,arrows,shapes,
+                shapes.multipart,automata,decorations.pathmorphing,calc}
+                
+% Tikz related function \gettikzxy
+\makeatletter
+\newcommand{\gettikzxy}[3]{%
+  \tikz@scan@one@point\pgfutil@firstofone#1\relax
+  \edef#2{\the\pgf@x}%
+  \edef#3{\the\pgf@y}%
+}
+\makeatother
+                  
+% --- Acronyms/Abbreviations Section -------------------------------------------+
+\usepackage{acro}
+\input{\folder/00-Acronyms} % List of acronyms, 2b updated
+% acro dev page: https://github.com/cgnieder/acro
+% acro manual:   https://mirror2.sandyriver.net/pub/ctan/macros/latex/contrib/acro/acro-manual.pdf
+
+% --- Managing sections' titles ------------------------------------------------+
+\usepackage{titlesec} % <---- ...using this package to modify the section titles
+% Level 1: the appearance of the CHAPTER...
+\renewcommand\thesection{\arabic{section}}  % CHAPTER 1 [New Line] TITLE
+\titleformat{\section}[display]             % each chapter has two lines...
+    {\newpage\normalfont\fontfamily{lmr}\selectfont\Large\filcenter}{\MakeUppercase{Chapter~\thesection}}{0pt}{}
+\titlespacing*{\section}{0pt}{0pt}{24pt}    % 24pt after section/chapter
+% Level 2: the appearance of the section...
+\titleformat{\subsection}
+    {\normalfont\fontfamily{lmr}\selectfont\large\bfseries} 
+    {\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{30pt}{6pt} % 30pt before, 6pt after subsection
+% Level 3: the appearance of the subsection...
+% Level 4: the appearance of the subsubsection...
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\fontfamily{lmr}\normalsize\bfseries\itshape}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+% --- Capitalizing the titles of the respective sections -----------------------+
+\renewcommand{\notesname}{\centering \MakeUppercase{Footnotes}}
+\renewcommand{\contentsname}{\centering \MakeUppercase{Contents}}
+\renewcommand{\refname}{\centering \MakeUppercase{References}}
+\renewcommand{\listfigurename}{\centering \MakeUppercase{List of Illustrations}}
+\renewcommand{\listtablename}{\centering \MakeUppercase{List of Tables}}
+\usepackage[titles]{tocloft}      % <-- ...to modify ToC, LoF, and LoT
+\renewcommand{\cftdotsep}{4}      % dots spacing
+\renewcommand{\cftsecdotsep}{4}   % dots spacing for sections 
+\renewcommand{\cftsubsecdotsep}{4}% dots spacing for subsections
+\renewcommand{\cfttoctitlefont}{\hfill\Large} % ToC = Table of Contents
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\hfill\Large} % LoF = List of Figures
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftlottitlefont}{\hfill\Large} % LoT = List of Tables
+\renewcommand{\cftafterlottitle}{\hfill}
+
+% --- Endnotes -----------------------------------------------------------------+
+% Reset endnote numbering every section
+\counterwithin*{endnote}{section}
+\counterwithin*{section}{part}
+\let\latexsection\section
+\makeatletter  %changes the catcode of @ to 11
+\renewcommand\enoteheading{
+    \setcounter{secnumdepth}{-2}
+    \latexsection*{\notesname\markboth{NOTES}{}}
+    \mbox{}\par\vskip-\baselineskip
+    \let\@afterindentfalse\@afterindenttrue
+}
+\def\enotedivision#1#2{\@ifnextchar\enotedivision{}{#1{#2}}}
+\makeatother    
+\RenewDocumentCommand{\section}{som}{%
+  \IfBooleanTF{#1}
+  {\latexsection*{#3}%
+    \setcounter{endnote}{0}%
+    \addtoendnotes{%
+      \noexpand\enotedivision{\noexpand\subsubsection*}
+      {\unexpanded{#3}}}%
+  }
+  {\IfNoValueTF{#2}
+    {\latexsection{#3}}
+    {\latexsection[#2]{#3}}%
+    \addtoendnotes{%
+     \noexpand\enotedivision{\noexpand\subsubsection*}
+     {\thesection. \unexpanded{#3}}}%
+  }%
+}
+\let\footnote=\endnote
+%--- ...end of Endnotes
+
+% --- Making footnotes as hyperlinks -------------------------------------------+
+\makeatletter
+\def\@footnotecolor{red}
+\define@key{Hyp}{footnotecolor}{%
+ \HyColor@HyperrefColor{#1}\@footnotecolor%
+}
+\patchcmd{\@footnotemark}{\hyper@linkstart{link}}{\hyper@linkstart{footnote}}{}{}
+\makeatother
+\hypersetup{footnotecolor=red}
+
+% --- Index Section ------------------------------------------------------------+
+\usepackage{imakeidx} % <----------------------- Alphabetical Index, two columns
+\makeindex[columns=2, title={\MakeUppercase{Index}}]
+
+\usepackage{lipsum} % filler text
+
+% New commands that deal with page numbering and ToC's line with Chapter word
+\def\prelimsections{
+    % Roman numbering of pages of preliminary sections
+    \pagenumbering{roman} 
+    \setcounter{page}{3} % <----- UMKC's req: the Abstract page # is [iii] in Roman
+}
+\def\mainsections{
+    \newpage
+    % Arabic numbering for pages of main text: chapters, sections, subsections
+    \pagenumbering{arabic}
+    % sets the page counter at #1
+    \setcounter{page}{1}
+    % adds Chapter word into Table of Contents
+    \addtocontents{toc}{\vspace{10pt}\protect\noindent% 
+        Chapter \vspace{-4pt}\par} 
+}

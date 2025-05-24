@@ -1,0 +1,48 @@
+%
+%
+%          Doc ...... UMKC Dissertation, v 1.0
+%          Style .... APA 7
+%          Date ..... May 23rd, 2025
+%          Author ... Oleksandr Valchyshen, 
+%                     avpfc@umkc.edu, valchyshen@gmail.com
+%
+
+\documentclass[12pt]{article}
+
+\input{tools.tex} % <--- sets up all needed packages
+
+\begin{document} % === START OF THE DOCUMENT ==============================
+
+% PART that initiates the project
+\input{\folder/00-MyInfo} % <---------------- Key details of PhD thesis
+\input{\folder/01-Title} % <----------------- Title page
+\input{\folder/02-Copyright} % <------------- Copyright page
+\prelimsections % <--- command from tools.tex
+\input{\folder/03-Abstract} % <-------------- Abstract page
+\input{\folder/04-Approval} % <-------------- Approval page
+\input{\folder/05-TOC} % <------------------- Table of Contents
+\input{\folder/06-Acknowledgments}
+\input{\folder/07-Preface} % <--- put % before \input{...} if there is no Preface
+
+% PART that is the core of the project --- Author's CHAPTERS
+\mainsections % <--- command from tools.tex
+\input{\folder/11-Chapter1} % <-------------- CHAPTER 1
+\input{\folder/12-Chapter2} % <-------------- CHAPTER 2
+%\input{\folder/13-Chapter3} % <-- remove % before \input{...}
+%\input{\folder/14-Chapter4} % <-- if you have more than 3 chapters 
+%\input{\folder/15-Chapter5}
+
+% PART that concludes the project
+% --- Concluding Sections: Appendices, End-notes, References --------------+
+\newpage 
+\input{\folder/20-Appendicies}
+\newpage \theendnotes % <------------ End-notes Section 
+\newpage  
+\addcontentsline{toc}{section}{\MakeUppercase{Footnotes}}
+\newpage 
+\printbibliography[title={\MakeUppercase{References}}] % <---- References
+\addcontentsline{toc}{section}{\MakeUppercase{References}}
+\newpage 
+\input{\folder/21-Vita} % <------ VITA Section
+
+\end{document} % === END OF THE DOCUMENT ==================================
