@@ -80,22 +80,26 @@
 % acro manual:   https://mirror2.sandyriver.net/pub/ctan/macros/latex/contrib/acro/acro-manual.pdf
 
 % --- Managing sections' titles ------------------------------------------------+
-\usepackage{titlesec} % <---- ...using this package to modify the section titles
+\usepackage{titlesec} % <- ...using this package to modify the section titles
 % Level 1: the appearance of the CHAPTER...
 \renewcommand\thesection{\arabic{section}}  % CHAPTER 1 [New Line] TITLE
 \titleformat{\section}[display]             % each chapter has two lines...
-    {\newpage\normalfont\fontfamily{lmr}\selectfont\normalsize\filcenter}{\MakeUppercase{Chapter~\thesection}}{0pt}{}
+    {\normalfont\fontfamily{lmr}\selectfont\filcenter}{\MakeUppercase{Chapter~\thesection}}{0pt}{}
 \titlespacing*{\section}{0pt}{0pt}{24pt}    % 24pt after section/chapter
 % Level 2: the appearance of the section...
 \titleformat{\subsection}
-    {\normalfont\fontfamily{lmr}\selectfont\large\bfseries} 
+    {\normalfont\fontfamily{lmr}\selectfont\bfseries\filcenter} 
     {\thesubsection}{1em}{}
 \titlespacing*{\subsection}{0pt}{30pt}{6pt} % 30pt before, 6pt after subsection
 % Level 3: the appearance of the subsection...
+\titleformat{\subsubsection}
+    {\normalfont\fontfamily{lmr}\selectfont\bfseries\itshape} 
+    {\thesubsubsection}{1em}{}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt} % 30pt before, 6pt after subsection
 % Level 4: the appearance of the subsubsection...
 \setcounter{secnumdepth}{4}
 \titleformat{\paragraph}
-{\normalfont\fontfamily{lmr}\normalsize\bfseries\itshape}{\theparagraph}{1em}{}
+{\normalfont\fontfamily{lmr}\normalsize\itshape}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
